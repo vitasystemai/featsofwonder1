@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feats of Wonder Preschool - A Beautiful Place to Grow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #E84393;
+            --primary-coral: #F7816E;
+            --primary-teal: #45B3C1;
+            --primary-dark-blue: #3D4A8A;
+            --primary-magenta: #C75B9B;
+            --accent-yellow: #F9E79F;
+            --neutral-grey: #A9A9A9;
+            --background-cream: #FEF9F3;
+            --text-color: #3D4A8A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            color: var(--text-color);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        .logo-text {
+            display: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-pink);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-teal), var(--primary-pink));
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated Background Particles */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(249, 231, 159, 0.1) 0%, transparent 50%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .floating-shape {
+            position: absolute;
+            opacity: 0.8;
+            animation: floatShape 12s infinite linear;
+        }
+
+        .floating-shape:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary-coral), var(--accent-yellow));
+            border-radius: 50%;
+            animation-delay: 0s;
+        }
+
+        .floating-shape:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--primary-magenta), var(--primary-pink));
+            border-radius: 50%;
+            animation-delay: 2s;
+        }
+
+        .floating-shape:nth-child(3) {
+            top: 40%;
+            left: 70%;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--primary-teal), #fff);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation-delay: 4s;
+        }
+
+        .floating-shape:nth-child(4) {
+            top: 70%;
+            left: 20%;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(45deg, var(--primary-pink), var(--primary-coral));
+            border-radius: 50%;
+            animation-delay: 6s;
+        }
+
+        @keyframes floatShape {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-100px) rotate(180deg); opacity: 1; }
+            100% { transform: translateY(0px) rotate(360deg); opacity: 0.6; }
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: fadeIn 2s ease-out 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        .cta-button {
+            background: linear-gradient(45deg, var(--primary-pink), var(--primary-coral));
+            color: white;
+            padding: 18px 36px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(232, 67, 147, 0.4);
+            opacity: 0;
+            animation: slideInUp 2s ease-out 1s forwards;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(45deg, var(--primary-coral), var(--primary-pink));
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(247, 129, 110, 0.4);
+        }
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: var(--background-cream);
+            position: relative;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #eee;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: cardSlideIn 0.8s ease-out forwards;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0.2s; }
+        .feature-card:nth-child(2) { animation-delay: 0.4s; }
+        .feature-card:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes cardSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            animation: bounce 2s infinite;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+        }
+
+        .feature-card:nth-child(1) .feature-icon { color: var(--primary-coral); }
+        .feature-card:nth-child(2) .feature-icon { color: var(--primary-pink); }
+        .feature-card:nth-child(3) .feature-icon { color: var(--primary-teal); }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        /* Section Styling */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: var(--background-cream);
+        }
+
+        .section:nth-child(odd) {
+            background: #fff;
+        }
+
+        #why-us {
+            background: #fff;
+        }
+
+        #founder {
+            background: var(--background-cream);
+        }
+
+        #philosophy {
+            background: linear-gradient(135deg, var(--primary-teal), var(--primary-pink));
+            color: white;
+        }
+
+        #testimonials {
+            background: var(--background-cream);
+        }
+
+        #admissions {
+            background: linear-gradient(135deg, var(--primary-coral), var(--primary-magenta));
+            color: white;
+        }
+
+        .section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--primary-dark-blue);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: titleSlideIn 1s ease-out forwards;
+        }
+
+        #philosophy h2, #admissions h2 {
+            color: white;
+        }
+
+        @keyframes titleSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem 0;
+            color: var(--primary-pink);
+        }
+
+        .section h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
+            margin: 2.5rem 0 1rem 0;
+            color: var(--primary-dark-blue);
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--primary-teal);
+            display: inline-block;
+        }
+
+        #philosophy h3, #philosophy h4, #philosophy p, #philosophy li {
+            color: white;
+        }
+
+        #philosophy h4 {
+            border-bottom: 3px solid rgba(255,255,255,0.5);
+        }
+
+        .section p, .section li {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .section ul {
+            margin-left: 2rem;
+            list-style: none;
+        }
+
+        .section ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .section ul li::before {
+            content: '🦋';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary-pink);
+            font-size: 1.2rem;
+        }
+
+        #philosophy ul li::before {
+            color: white;
+        }
+
+        /* Founder Section */
+        .founder {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .founder-image {
+            text-align: center;
+            position: relative;
+        }
+
+        .founder-image img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: block;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 5px solid white;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .founder-placeholder {
+            width: 280px;
+            height: 280px;
+            background: linear-gradient(135deg, var(--primary-coral), var(--primary-pink));
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 5px solid white;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .founder-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border: 3px solid var(--primary-teal);
+            border-radius: 50%;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        /* Testimonial */
+        .testimonial {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            font-style: italic;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            position: relative;
+            margin: 2rem auto;
+            border: 1px solid #eee;
+            border-left: 10px solid var(--primary-teal);
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUpFade 1s ease-out 0.5s forwards;
+            max-width: 800px;
+        }
+
+        @keyframes slideUpFade {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .testimonial::before {
+            content: '“';
+            font-size: 8rem;
+            color: var(--primary-teal);
+            opacity: 0.1;
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-author {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            font-style: normal;
+            color: var(--primary-pink);
+            position: relative;
+            z-index: 1;
+        }
+        /* Admissions Section */
+        .admissions {
+            text-align: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .cta-secondary:hover {
+            background: white;
+            color: var(--primary-coral);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark-blue);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        /* Video Background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        /* Background Image Slideshow */
+        .background-slideshow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        .background-slideshow .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: slideAnimation 12s infinite;
+        }
+        .background-slideshow .slide:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1599058917214-5f07388b3521?auto=format&fit=crop&w=1950&q=80'); animation-delay: 0s; }
+        .background-slideshow .slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1509358270727-80489a3c5611?auto=format&fit=crop&w=1950&q=80'); animation-delay: 3s; }
+        .background-slideshow .slide:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1534367611232-2875829b8829?auto=format&fit=crop&w=1950&q=80'); animation-delay: 6s; }
+        .background-slideshow .slide:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1563237026-275c20ec1f2e?auto=format&fit=crop&w=1950&q=80'); animation-delay: 9s; }
+        @keyframes slideAnimation {
+            0%, 8.33% { opacity: 1; }
+            25%, 100% { opacity: 0; }
+        }
+
+        #bg-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.05; /* Reduced opacity to let images show through */
+        }
+
+        /* New Background Slideshow */
+        .background-slideshow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2; /* Behind the video overlay */
+        }
+
+        .background-slideshow .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            animation: imageAnimation 12s linear infinite;
+        }
+
+        /* --- IMPORTANT --- */
+        /* Preschool videos and images of children playing and learning */
+        .background-slideshow .slide:nth-child(1) {
+            background-image: url('https://images.unsplash.com/photo-1503944583220-79d6927271b5?q=80&w=2070&auto=format&fit=crop');
+            animation-delay: 0s;
+        }
+        .background-slideshow .slide:nth-child(2) {
+            background-image: url('https://images.unsplash.com/photo-1517578589922-21e91b7ce15c?q=80&w=2070&auto=format&fit=crop');
+            animation-delay: 3s;
+        }
+        .background-slideshow .slide:nth-child(3) {
+            background-image: url('https://images.unsplash.com/photo-1546490283-ea4776457ccc?q=80&w=2070&auto=format&fit=crop');
+            animation-delay: 6s;
+        }
+        .background-slideshow .slide:nth-child(4) {
+            background-image: url('https://images.unsplash.com/photo-1588444729829-11e36013e219?q=80&w=1974&auto=format&fit=crop');
+            animation-delay: 9s;
+        }
+
+        /* Video slides for preschool activities */
+        .background-slideshow .video-slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            animation: imageAnimation 15s linear infinite;
+        }
+
+        .background-slideshow .video-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .background-slideshow .video-slide:nth-child(5) {
+            animation-delay: 12s;
+        }
+        .background-slideshow .video-slide:nth-child(6) {
+            animation-delay: 15s;
+        }
+        .background-slideshow .video-slide:nth-child(7) {
+            animation-delay: 18s;
+        }
+
+        @keyframes imageAnimation {
+            0% { opacity: 0; animation-timing-function: ease-in; }
+            8% { opacity: 1; }
+            25% { opacity: 1; }
+            33% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .founder {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                margin: 0.5rem 0;
+                width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Image Slideshow -->
+    <div class="background-slideshow">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+    </div>
+    <div class="background-slideshow">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        
+        <!-- Preschool activity videos -->
+        <div class="video-slide">
+            <video autoplay muted loop>
+                <source src="https://cdn.pixabay.com/video/2019/08/07/25348-356894091_large.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-slide">
+            <video autoplay muted loop>
+                <source src="https://cdn.pixabay.com/video/2020/02/03/31146-389850834_large.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-slide">
+            <video autoplay muted loop>
+                <source src="https://cdn.pixabay.com/video/2019/07/15/24878-349607484_large.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="video-background">
+        <video autoplay muted loop id="bg-video">
+            <source src="https://cdn.pixabay.com/video/2020/02/03/31146-389850834.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="Feats of Wonder.png" alt="Feats of Wonder Logo">
+                <span class="logo-text">Feats of Wonder</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#founder">Our Founder</a></li>
+                <li><a href="#philosophy">Philosophy</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#admissions">Admissions</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="floating-elements">
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Feats of Wonder Preschool</h1>
+                <p>A beautiful place to grow, where curiosity thrives and little learners shine.</p>
+                <a href="#admissions" class="cta-button">SCHEDULE YOUR PERSONAL TOUR</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Holistic Development</h3>
+                    <p>We focus on the whole child—cognitive, social, emotional, and physical growth.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👩‍🏫</div>
+                    <h3>Expert, Caring Staff</h3>
+                    <p>Our passionate educators are dedicated to nurturing each child's unique potential.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>A True Partnership with Parents</h3>
+                    <p>We believe in open communication and collaboration to ensure your child's success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us" class="section">
+        <div class="container">
+            <h2>The Difference is in the Details.</h2>
+            <p style="text-align: center; max-width: 800px; margin: -2rem auto 4rem auto;">Parents choose Feats of Wonder because they see extraordinary results. We have meticulously crafted an environment where children don't just learn—they thrive.</p>
+
+            <h4>An Innovative, Child-Centric Curriculum</h4>
+            <p>Our approach is designed for modern learners. Forget heavy, cumbersome backpacks. We utilize a unique, <strong>all-in-one concept book</strong> that holistically covers all subjects, making learning integrated and easy for your child to manage. Our days are filled with enriching activities, from productive, play-based learning and vital social interaction to exciting <strong>summer camps and weekly water activities</strong>, ensuring your child is always engaged and joyful.</p>
+
+            <h4>A Nurturing Environment That Feels Like Family</h4>
+            <p>Our teaching staff, including celebrated educators like <strong>Anjali Ma'am and Prasanna Ma'am</strong>, are the heart of our school. They are masters at nurturing and developing not just academic skills, but the whole child. As a parent, you will find our team to be exceptionally friendly, approachable, and genuinely invested in your child's happiness and progress.</p>
+
+            <h4>Uncompromising Standards of Safety & Hygiene</h4>
+            <p>Your child’s well-being is our absolute priority. We pride ourselves on the <strong>immaculate neatness and hygiene</strong> of our school, both inside and outside the premises. From our infrastructure to our daily routines, we maintain the highest standards to provide a safe and healthy space for your little one to explore.</p>
+
+            <h4>Leadership That Listens and Acts</h4>
+            <p>We are led by a hands-on founder who personally ensures excellence in every detail—from the quality of books and uniforms to addressing parent concerns with valuable, actionable advice. This meticulous attention to detail is what sets us apart and ensures a smooth, flawless experience for both children and parents.</p>
+        </div>
+    </section>
+
+    <section id="founder" class="section">
+        <div class="container">
+            <h2>Leadership with Passion and Global Expertise</h2>
+            <div class="founder">
+                <div class="founder-image">
+                    <img src="team-1.jpg" alt="Yoshitha Ma'am, Founder & Director">
+                </div>
+                <div class="founder-content">
+                    <h3>The heart and vision of Feats of Wonder come from our founder, <strong>Yoshitha</strong>.</h3>
+                    <p>Her unparalleled dedication and deep understanding of education are the cornerstones of our school's success.</p>
+                    
+                    <p>With an <strong>MBA in HR</strong> and over <strong>15 years of experience in various international schools</strong>, Yoshitha has a profound understanding of what it takes to deliver a truly holistic education. Her impressive career includes:</p>
+                    
+                    <ul>
+                        <li><strong>10 years</strong> as a dedicated teacher in primary and secondary schools.</li>
+                        <li><strong>5 years</strong> in Head positions for leading international preschools and primary schools.</li>
+                        <li>Successfully managing and mentoring over <strong>500 students</strong>, guiding them toward academic excellence and personal growth.</li>
+                        <li>Holding prestigious <strong>certifications in Child and Adolescent Development & Emotional Wellness/Mind Coaching</strong> from NHCA Singapore.</li>
+                        <li>Recipient of the <strong>"Best Mentor" award</strong> at the Bridge Intelia Young Scientist Talent Virtual Fair, a testament to her commitment to fostering young talent.</li>
+                    </ul>
+                    
+                    <p>We are proud to be led by a founder whose vision, expertise, and dedication are shaping the future of education.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="philosophy" class="section">
+        <div class="container">
+            <h2>Our Guiding Principles</h2>
+            <p style="text-align: center; max-width: 800px; margin: -2rem auto 4rem auto;">Our mission is clear and woven into everything we do. We are committed to:</p>
+            
+            <ul>
+                <li><strong>Fostering Holistic Growth:</strong> To support every child's development—cognitive, social, emotional, and physical—in a safe, respectful, and wonderfully inclusive environment.</li>
+                <li><strong>Igniting Natural Curiosity:</strong> To cultivate creativity, confidence, and a love for learning through dynamic, play-based learning and meaningful interactions.</li>
+                <li><strong>Preparing for Life's Journey:</strong> To equip children with the essential skills they need for a successful transition to primary school and for life itself.</li>
+                <li><strong>Building a Strong Community:</strong> To actively engage families in the learning process, promoting a culture of partnership, respect, and diversity.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section">
+        <div class="container">
+            <h2>From Our Community: Hear What Parents Are Saying</h2>
+            <div class="testimonial">
+                My decision to join this school was correct & I think this Feats of Wonder school is good for my child. My child's progress is amazing. He really enjoys coming to school... I particularly want to mention Yoshita Ma'am who strongly impressed me with her ability to address concerns and problems... I'm so impressed with how they handle the kids at school. I strongly recommended this school for primary schooling.
+                <div class="testimonial-author">— A Grateful Parent, Feats of Wonder</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="admissions" class="section admissions">
+        <div class="container">
+            <h2>Begin Your Child's Wonder-Filled Journey Today</h2>
+            <p>You have seen our philosophy and heard from our parents. Now, experience the Feats of Wonder difference for yourself. We invite you to see our vibrant classrooms, meet our caring staff, and feel the joyful energy of our school.</p>
+            
+            <p>Spots are limited to ensure personalized attention for every child. Contact us today to secure your child's place in an environment where they will be cherished, challenged, and prepared to excel.</p>
+            
+            <div class="cta-buttons">
+                <a href="#" class="cta-button">SCHEDULE A VISIT</a>
+                <a href="#" class="cta-button cta-secondary">DOWNLOAD OUR BROCHURE</a>
+                <a href="#" class="cta-button cta-secondary">CONTACT ADMISSIONS</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Feats of Wonder Preschool. All rights reserved. | A beautiful place to grow.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Enhanced scroll effect for header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const scrolled = window.scrollY > 50;
+            
+            if (scrolled) {
+                header.style.background = 'rgba(255, 255, 255, 0.9)';
+                header.style.backdropFilter = 'blur(10px)';
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.background = 'white';
+                header.style.backdropFilter = 'none';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    if (entry.target.classList.contains('feature-card') || entry.target.classList.contains('testimonial') || entry.target.classList.contains('section h2')) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.feature-card, .section h2, .testimonial');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0'; // Hide elements initially
+                observer.observe(el);
+            });
+        });
+
+        // Parallax effect for floating shapes
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-shape');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.3 + (index * 0.05);
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px) rotate(${scrolled * 0.05}deg)`;
+            });
+        });
+
+        // Add interactive hover effects to feature cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const featureCards = document.querySelectorAll('.feature-card');
+            
+            featureCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const icon = card.querySelector('.feature-icon');
+                    icon.style.transform = 'scale(1.2) rotate(10deg)';
+                    icon.style.transition = 'transform 0.3s ease';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    const icon = card.querySelector('.feature-icon');
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
