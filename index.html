@@ -3,7 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feats of Wonder Preschool - A Beautiful Place to Grow</title>
+    <title>Feats of Wonder Preschool - A Beaut            .hero-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            color: white;
+            position: relative;
+            display: inline-block;
+        }
+
+        .butterfly {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><text x="0" y="20">🦋</text></svg>');
+            background-size: contain;
+            pointer-events: none;
+            transition: all 0.3s ease-in-out;
+            opacity: 0;
+            animation: butterflyAppear 5s forwards, butterflyFloat 3s infinite ease-in-out;
+        }
+
+        .butterfly:nth-child(1) { left: -50px; top: -20px; animation-delay: 0.2s; }
+        .butterfly:nth-child(2) { right: -40px; top: 10px; animation-delay: 0.4s; }
+        .butterfly:nth-child(3) { left: -30px; bottom: -10px; animation-delay: 0.6s; }
+        .butterfly:nth-child(4) { right: -20px; bottom: -20px; animation-delay: 0.8s; }
+
+        @keyframes butterflyAppear {
+            0% { opacity: 0; transform: translate(50px, 50px); }
+            100% { opacity: 1; transform: translate(0, 0); }
+        }
+
+        @keyframes butterflyFloat {
+            0%, 100% { transform: translate(0, 0) rotate(5deg); }
+            50% { transform: translate(10px, -10px) rotate(-5deg); }
+        }
+
+        .hero-content h1:hover .butterfly {
+            animation: butterflyFlyAway 1s forwards;
+        }
+
+        @keyframes butterflyFlyAway {
+            0% { transform: translate(0, 0) rotate(0); }
+            100% { 
+                transform: translate(var(--fly-x), var(--fly-y)) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .hero-content p {e to Grow</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
@@ -108,7 +157,14 @@
             overflow: hidden;
         }
 
-        /* Animated Background Particles */
+
+
+        /* Background Slideshow */
+        .hero {
+            background: none;
+            position: relative;
+        }
+
         .hero::before {
             content: '';
             position: absolute;
@@ -116,78 +172,57 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(249, 231, 159, 0.1) 0%, transparent 50%);
-            animation: float 6s ease-in-out infinite;
+            background-size: cover;
+            background-position: center;
+            animation: backgroundSlideshow 24s ease-in-out infinite;
+            opacity: 0.9;
+            transition: opacity 1s ease-in-out;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+        @keyframes backgroundSlideshow {
+            0%, 15% {
+                background-image: url('download (1).jpeg');
+                opacity: 0.9;
+            }
+            16.67%, 31.67% {
+                background-image: url('download.jpeg');
+                opacity: 0.9;
+            }
+            33.33%, 48.33% {
+                background-image: url('images (1).jpeg');
+                opacity: 0.9;
+            }
+            50%, 65% {
+                background-image: url('images (2).jpeg');
+                opacity: 0.9;
+            }
+            66.67%, 81.67% {
+                background-image: url('images.jpeg');
+                opacity: 0.9;
+            }
+            83.33%, 98.33% {
+                background-image: url('istockphoto-1458807880-612x612.jpg');
+                opacity: 0.9;
+            }
+            100% {
+                background-image: url('download (1).jpeg');
+                opacity: 0.9;
+            }
         }
 
-        /* Floating Elements */
-        .floating-elements {
+        .hero::after {
+            content: '';
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-teal), var(--primary-pink));
+            opacity: 0.7;
             z-index: 1;
         }
 
-        .floating-shape {
-            position: absolute;
-            opacity: 0.8;
-            animation: floatShape 12s infinite linear;
-        }
 
-        .floating-shape:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, var(--primary-coral), var(--accent-yellow));
-            border-radius: 50%;
-            animation-delay: 0s;
-        }
-
-        .floating-shape:nth-child(2) {
-            top: 60%;
-            left: 80%;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(45deg, var(--primary-magenta), var(--primary-pink));
-            border-radius: 50%;
-            animation-delay: 2s;
-        }
-
-        .floating-shape:nth-child(3) {
-            top: 40%;
-            left: 70%;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(45deg, var(--primary-teal), #fff);
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-            animation-delay: 4s;
-        }
-
-        .floating-shape:nth-child(4) {
-            top: 70%;
-            left: 20%;
-            width: 35px;
-            height: 35px;
-            background: linear-gradient(45deg, var(--primary-pink), var(--primary-coral));
-            border-radius: 50%;
-            animation-delay: 6s;
-        }
-
-        @keyframes floatShape {
-            0% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
-            50% { transform: translateY(-100px) rotate(180deg); opacity: 1; }
-            100% { transform: translateY(0px) rotate(360deg); opacity: 0.6; }
-        }
         .hero-content {
             position: relative;
             z-index: 2;
@@ -574,6 +609,108 @@
             text-align: center;
         }
 
+        .admission-form-container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .admission-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .form-group {
+            padding: 1.5rem;
+            background: var(--background-cream);
+            border-radius: 15px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .form-group h3 {
+            color: var(--primary-dark-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-field {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .form-field.full-width {
+            width: 100%;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid rgba(0,0,0,0.1);
+            border-radius: 8px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            border-color: var(--primary-teal);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(69,179,193,0.2);
+        }
+
+        .form-field textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .form-footer .cta-button {
+            margin: 0 auto;
+            animation: none;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .form-field {
+                width: 100%;
+            }
+            
+            .admission-form-container {
+                padding: 1rem;
+            }
+        }
+
         .cta-buttons {
             display: flex;
             justify-content: center;
@@ -601,129 +738,7 @@
             padding: 3rem 0;
         }
 
-        /* Video Background */
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-        /* Background Image Slideshow */
-        .background-slideshow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            overflow: hidden;
-        }
-        .background-slideshow .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            animation: slideAnimation 12s infinite;
-        }
-        .background-slideshow .slide:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1599058917214-5f07388b3521?auto=format&fit=crop&w=1950&q=80'); animation-delay: 0s; }
-        .background-slideshow .slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1509358270727-80489a3c5611?auto=format&fit=crop&w=1950&q=80'); animation-delay: 3s; }
-        .background-slideshow .slide:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1534367611232-2875829b8829?auto=format&fit=crop&w=1950&q=80'); animation-delay: 6s; }
-        .background-slideshow .slide:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1563237026-275c20ec1f2e?auto=format&fit=crop&w=1950&q=80'); animation-delay: 9s; }
-        @keyframes slideAnimation {
-            0%, 8.33% { opacity: 1; }
-            25%, 100% { opacity: 0; }
-        }
 
-        #bg-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.05; /* Reduced opacity to let images show through */
-        }
-
-        /* New Background Slideshow */
-        .background-slideshow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2; /* Behind the video overlay */
-        }
-
-        .background-slideshow .slide {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0;
-            animation: imageAnimation 12s linear infinite;
-        }
-
-        /* --- IMPORTANT --- */
-        /* Preschool videos and images of children playing and learning */
-        .background-slideshow .slide:nth-child(1) {
-            background-image: url('https://images.unsplash.com/photo-1503944583220-79d6927271b5?q=80&w=2070&auto=format&fit=crop');
-            animation-delay: 0s;
-        }
-        .background-slideshow .slide:nth-child(2) {
-            background-image: url('https://images.unsplash.com/photo-1517578589922-21e91b7ce15c?q=80&w=2070&auto=format&fit=crop');
-            animation-delay: 3s;
-        }
-        .background-slideshow .slide:nth-child(3) {
-            background-image: url('https://images.unsplash.com/photo-1546490283-ea4776457ccc?q=80&w=2070&auto=format&fit=crop');
-            animation-delay: 6s;
-        }
-        .background-slideshow .slide:nth-child(4) {
-            background-image: url('https://images.unsplash.com/photo-1588444729829-11e36013e219?q=80&w=1974&auto=format&fit=crop');
-            animation-delay: 9s;
-        }
-
-        /* Video slides for preschool activities */
-        .background-slideshow .video-slide {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            animation: imageAnimation 15s linear infinite;
-        }
-
-        .background-slideshow .video-slide video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .background-slideshow .video-slide:nth-child(5) {
-            animation-delay: 12s;
-        }
-        .background-slideshow .video-slide:nth-child(6) {
-            animation-delay: 15s;
-        }
-        .background-slideshow .video-slide:nth-child(7) {
-            animation-delay: 18s;
-        }
-
-        @keyframes imageAnimation {
-            0% { opacity: 0; animation-timing-function: ease-in; }
-            8% { opacity: 1; }
-            25% { opacity: 1; }
-            33% { opacity: 0; }
-            100% { opacity: 0; }
-        }
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -753,42 +768,8 @@
     </style>
 </head>
 <body>
-    <!-- Background Image Slideshow -->
-    <div class="background-slideshow">
-        <div class="slide"></div>
-        <div class="slide"></div>
-        <div class="slide"></div>
-        <div class="slide"></div>
-    </div>
-    <div class="background-slideshow">
-        <div class="slide"></div>
-        <div class="slide"></div>
-        <div class="slide"></div>
-        <div class="slide"></div>
-        
-        <!-- Preschool activity videos -->
-        <div class="video-slide">
-            <video autoplay muted loop>
-                <source src="https://cdn.pixabay.com/video/2019/08/07/25348-356894091_large.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="video-slide">
-            <video autoplay muted loop>
-                <source src="https://cdn.pixabay.com/video/2020/02/03/31146-389850834_large.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="video-slide">
-            <video autoplay muted loop>
-                <source src="https://cdn.pixabay.com/video/2019/07/15/24878-349607484_large.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
-    <div class="video-background">
-        <video autoplay muted loop id="bg-video">
-            <source src="https://cdn.pixabay.com/video/2020/02/03/31146-389850834.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
+
+
     <header>
         <nav class="container">
             <div class="logo">
@@ -807,15 +788,15 @@
     </header>
 
     <section id="home" class="hero">
-        <div class="floating-elements">
-            <div class="floating-shape"></div>
-            <div class="floating-shape"></div>
-            <div class="floating-shape"></div>
-            <div class="floating-shape"></div>
-        </div>
         <div class="container">
             <div class="hero-content">
-                <h1>Feats of Wonder Preschool</h1>
+                <h1>
+                    Feats of Wonder Preschool
+                    <span class="butterfly" style="--fly-x: 100px; --fly-y: -100px;"></span>
+                    <span class="butterfly" style="--fly-x: -100px; --fly-y: -80px;"></span>
+                    <span class="butterfly" style="--fly-x: 80px; --fly-y: 100px;"></span>
+                    <span class="butterfly" style="--fly-x: -90px; --fly-y: 90px;"></span>
+                </h1>
                 <p>A beautiful place to grow, where curiosity thrives and little learners shine.</p>
                 <a href="#admissions" class="cta-button">SCHEDULE YOUR PERSONAL TOUR</a>
             </div>
@@ -919,9 +900,89 @@
             <h2>Begin Your Child's Wonder-Filled Journey Today</h2>
             <p>You have seen our philosophy and heard from our parents. Now, experience the Feats of Wonder difference for yourself. We invite you to see our vibrant classrooms, meet our caring staff, and feel the joyful energy of our school.</p>
             
-            <p>Spots are limited to ensure personalized attention for every child. Contact us today to secure your child's place in an environment where they will be cherished, challenged, and prepared to excel.</p>
-            
-            <div class="cta-buttons">
+            <div class="admission-form-container">
+                <form id="admissionForm" class="admission-form">
+                    <div class="form-group">
+                        <h3>Child's Information</h3>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="childName">Child's Full Name</label>
+                                <input type="text" id="childName" name="childName" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="childDob">Date of Birth</label>
+                                <input type="date" id="childDob" name="childDob" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="gender">Gender</label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="program">Program Interest</label>
+                                <select id="program" name="program" required>
+                                    <option value="">Select Program</option>
+                                    <option value="toddler">Toddler (2-3 years)</option>
+                                    <option value="preschool">Preschool (3-4 years)</option>
+                                    <option value="kindergarten">Kindergarten (4-5 years)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h3>Parent/Guardian Information</h3>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="parentName">Parent/Guardian Name</label>
+                                <input type="text" id="parentName" name="parentName" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="relationship">Relationship to Child</label>
+                                <input type="text" id="relationship" name="relationship" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="form-field full-width">
+                            <label for="address">Address</label>
+                            <textarea id="address" name="address" rows="3" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h3>Additional Information</h3>
+                        <div class="form-field full-width">
+                            <label for="specialNeeds">Any Special Needs or Medical Conditions</label>
+                            <textarea id="specialNeeds" name="specialNeeds" rows="3"></textarea>
+                        </div>
+                        <div class="form-field full-width">
+                            <label for="questions">Questions or Comments</label>
+                            <textarea id="questions" name="questions" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-footer">
+                        <button type="submit" class="cta-button">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="cta-buttons" style="margin-top: 3rem;">
                 <a href="#" class="cta-button">SCHEDULE A VISIT</a>
                 <a href="#" class="cta-button cta-secondary">DOWNLOAD OUR BROCHURE</a>
                 <a href="#" class="cta-button cta-secondary">CONTACT ADMISSIONS</a>
@@ -998,17 +1059,7 @@
             });
         });
 
-        // Parallax effect for floating shapes
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.floating-shape');
-            
-            parallaxElements.forEach((element, index) => {
-                const speed = 0.3 + (index * 0.05);
-                const yPos = -(scrolled * speed);
-                element.style.transform = `translateY(${yPos}px) rotate(${scrolled * 0.05}deg)`;
-            });
-        });
+
 
         // Add interactive hover effects to feature cards
         document.addEventListener('DOMContentLoaded', () => {
@@ -1026,6 +1077,25 @@
                     icon.style.transform = 'scale(1) rotate(0deg)';
                 });
             });
+
+            // Handle admission form submission
+            const admissionForm = document.getElementById('admissionForm');
+            if (admissionForm) {
+                admissionForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    // Add animation to the submit button
+                    const submitButton = admissionForm.querySelector('button[type="submit"]');
+                    submitButton.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        submitButton.style.transform = 'scale(1)';
+                    }, 200);
+
+                    // Here you would typically send the form data to your server
+                    alert('Thank you for your application! We will contact you shortly.');
+                    admissionForm.reset();
+                });
+            }
         });
     </script>
 </body>
